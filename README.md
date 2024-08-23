@@ -50,3 +50,53 @@ export default defineConfig({
     },
 })
 ```
+
+## Configure Aliases
+
+### vite.config.js
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+export default defineConfig({
+    plugins: [react()],
+    resolve: {
+        alias: {
+            '@components': path.resolve(__dirname, 'src/components'),
+            '@utils': path.resolve(__dirname, 'src/utils'),
+            // Add more aliases here
+        },
+    },
+})
+```
+
+### jsconfig.json
+
+To enable editor support for aliases (e.g., for VS Code), create or update the jsconfig.json file in the root of your project:
+
+```js
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@": ["src/*"],
+            "@assets/*": ["src/assets/*"],
+            "@components/*": ["src/components/*"],
+            "@hooks/*": ["src/hooks/*"],
+            // Add more aliases here
+        }
+    },
+    "include": ["src/**/*"]
+}
+```
+
+### Use Aliases in Your Code
+
+You can now use the defined aliases in your imports. For example:
+
+```js
+import MyComponent from '@components/MyComponent'
+import { someUtilityFunction } from '@utils/someUtility'
+```
