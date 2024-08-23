@@ -31,3 +31,22 @@ In a Vite project, environment variables are accessible via the `import.meta.env
 ```javascript
 const apiUrl = import.meta.env.VITE_API_URL
 ```
+
+## Changing Server Port in Vite
+
+By default, Vite runs the development server on port 5173. To change the port, you can either modify the `vite.config.js` file or use environment variables.
+
+### Modifying `vite.config.js`
+
+To change the port by modifying the `vite.config.js` file, you can add or update the `server` configuration. Here's an example:
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+    server: {
+        port: 3000, // Change this to your desired port
+    },
+})
+```
