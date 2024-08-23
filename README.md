@@ -100,3 +100,33 @@ You can now use the defined aliases in your imports. For example:
 import MyComponent from '@components/MyComponent'
 import { someUtilityFunction } from '@utils/someUtility'
 ```
+
+# Shadcn UI Library
+
+Shadcn is a Tailwind UI library designed to streamline the creation of modern, responsive web interfaces. It provides a set of customizable components that are easy to integrate into your projects.
+
+## Folder Structure
+
+-   **`@Components/ui`**: Contains all Shadcn components. Each component is organized in this directory to ensure modularity and ease of access.
+-   **`@lib/utils`**: Includes utility functions required by Shadcn components. These utilities support the functionality and enhance the performance of the components.
+
+## How to Add a New Component
+
+To add a new component to the Shadcn UI library, follow these steps:
+
+1. **Explore Available Components**:
+
+    - Before adding a new component, explore the available components to ensure you’re not duplicating existing functionality. Visit the Shadcn UI documentation at [https://ui.shadcn.com/docs](https://ui.shadcn.com/docs) to review the current components and their usage.
+
+2. **Add a New Component**:
+
+    - Open your terminal.
+    - Run the following command to add a new component:
+
+        ```bash
+        npx shadcn-ui@latest add <component-name>
+        ```
+
+        Replace `<component-name>` with the name of the component you wish to add, such as `button`.
+
+    - After running the command, the new component will be added to the `@Components/ui` directory, and you can begin using it in your project.
