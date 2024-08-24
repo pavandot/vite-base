@@ -3,7 +3,7 @@ import { Toaster } from '@/components/ui/sonner'
 
 const Root = () => {
     return (
-        <section>
+        <section className=' bg-background text-foreground'>
             {/* Header */}
             <div>
                 <Outlet />

@@ -16,20 +16,24 @@ const Users = () => {
         <section className='  max-w-5xl mx-auto p-10'>
             {userStatus === 'pending' && <UsersLoading />}
             {userStatus === 'error' && <p>Error...</p>}
-            {users?.length > 0 ? (
-                <div className=' flex flex-wrap gap-5'>
-                    {users?.map((user) => {
-                        return <UserCard key={user.id} userData={user} />
-                    })}
-                </div>
-            ) : (
-                <div className=' flex items-center h-screen justify-center'>
-                    <div>
-                        <PackageOpen className=' h-20  w-20' />
+            {userStatus === 'success' && (
+                <>
+                    {users?.length > 0 ? (
+                        <div className=' flex flex-wrap gap-5'>
+                            {users?.map((user) => {
+                                return <UserCard key={user.id} userData={user} />
+                            })}
+                        </div>
+                    ) : (
+                        <div className=' flex items-center h-screen justify-center'>
+                            <div>
+                                <PackageOpen className=' h-20  w-20' />
 
-                        <p className=' text-center'>Empty</p>
-                    </div>
-                </div>
+                                <p className=' text-center'>Empty</p>
+                            </div>
+                        </div>
+                    )}
+                </>
             )}
         </section>
     )
