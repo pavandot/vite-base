@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
+import DeleteUserDialog from './DeleteUserDialog'
 
 const UserCard = ({ userData }) => {
     return (
@@ -17,7 +18,7 @@ const UserCard = ({ userData }) => {
                     </AvatarFallback>
                 </Avatar>
                 <div>
-                    <CardTitle className='text-2xl'>{userData.name}</CardTitle>
+                    <CardTitle className='text-2xl text-foreground'>{userData.name}</CardTitle>
                     <p className='text-sm text-muted-foreground'>@{userData.username}</p>
                     <Badge variant='outline' className='mt-2'>
                         {userData.company.name}
@@ -29,9 +30,7 @@ const UserCard = ({ userData }) => {
                 <Button asChild className='w-full'>
                     <Link to={`/profile/${userData?.id}`}>View Profile</Link>
                 </Button>
-                <Button variant='destructive' className='w-full'>
-                    Remove User
-                </Button>
+                <DeleteUserDialog />
             </CardFooter>
         </Card>
     )

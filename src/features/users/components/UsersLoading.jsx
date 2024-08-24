@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 const UsersLoading = () => {
     return (
         <section className=' flex flex-wrap gap-5'>
-            {[...Array(4)].map((i) => {
+            {[1, 2, 3, 4].map((i) => {
                 return (
                     <Card className=' max-w-md' key={i}>
                         <CardContent className='p-6'>

@@ -14,7 +14,7 @@ const ContactAuthor = ({ userData }) => {
     }
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger className='w-full'>
+            <DropdownMenuTrigger className='w-full' asChild>
                 <Button className='w-full'>Contact Author</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-full'>
