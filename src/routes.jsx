@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import ErrorPage from '@pages/ErrorPage'
-import Root from '@pages/Root'
-import Dashboard from '@pages/dashboard/Dashboard'
+import ErrorPage from '@/pages/ErrorPage'
+import Root from '@/pages/Root'
+import Users from '@/pages/users/Users'
+import Profile from '@/pages/profile/Profile'
 
 const routes = createBrowserRouter([
     {
@@ -11,7 +12,11 @@ const routes = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Dashboard />,
+                element: <Users />,
+            },
+            {
+                path: '/profile/:userId',
+                element: <Profile />,
             },
         ],
     },
