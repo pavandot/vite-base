@@ -10,8 +10,11 @@ import {
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
+import { useDispatch } from 'react-redux'
+import { deleteUser } from '../slice/usersSlice'
 
-const DeleteUserDialog = () => {
+const DeleteUserDialog = ({ userId }) => {
+    const dispatch = useDispatch()
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -29,7 +32,7 @@ const DeleteUserDialog = () => {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction>Continue</AlertDialogAction>
+                    <AlertDialogAction onClick={() => dispatch(deleteUser(userId))}>Continue</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

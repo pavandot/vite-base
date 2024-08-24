@@ -1,10 +1,17 @@
 import { useGetUsers } from '@/features/users/apis/getUsers'
 import UserCard from '@/features/users/components/UserCard'
 import UsersLoading from '@/features/users/components/UsersLoading'
+import { addUsers } from '@/features/users/slice/usersSlice'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Users = () => {
-    const { data: users, status: userStatus } = useGetUsers()
-    console.log(users)
+    const dispatch = useDispatch()
+    const users = useSelector((state) => state.users)
+    const { data: usersData, status: userStatus } = useGetUsers()
+    useEffect(() => {
+        if (userStatus === 'success') dispatch(addUsers(usersData))
+    }, [dispatch, userStatus, usersData])
 
     return (
         <section className='  max-w-5xl mx-auto p-10'>

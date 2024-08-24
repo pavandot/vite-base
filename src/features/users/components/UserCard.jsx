@@ -30,7 +30,7 @@ const UserCard = ({ userData }) => {
                 <Button asChild className='w-full'>
                     <Link to={`/profile/${userData?.id}`}>View Profile</Link>
                 </Button>
-                <DeleteUserDialog />
+                <DeleteUserDialog userId={userData?.id} />
             </CardFooter>
         </Card>
     )
