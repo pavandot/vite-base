@@ -12,9 +12,18 @@ import {
 import { Button } from '@/components/ui/button'
 import { useDispatch } from 'react-redux'
 import { deleteUser } from '../slice/usersSlice'
+import { toast } from 'sonner'
 
 const DeleteUserDialog = ({ userId }) => {
     const dispatch = useDispatch()
+    const removeUser = () => {
+        dispatch(deleteUser(userId))
+        toast.success('User as been removed', {
+            action: {
+                label: 'Dismiss',
+            },
+        })
+    }
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -32,7 +41,7 @@ const DeleteUserDialog = ({ userId }) => {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={() => dispatch(deleteUser(userId))}>Continue</AlertDialogAction>
+                    <AlertDialogAction onClick={removeUser}>Continue</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
