@@ -11,14 +11,14 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 import { useDispatch } from 'react-redux'
-import { deleteUser } from '../slice/usersSlice'
+import { deleteAuthor } from '../slice/authorsSlice'
 import { toast } from 'sonner'
 
-const DeleteUserDialog = ({ userId }) => {
+const DeleteAuthorDialog = ({ userId }) => {
     const dispatch = useDispatch()
     const removeUser = () => {
-        dispatch(deleteUser(userId))
-        toast.success('User as been removed', {
+        dispatch(deleteAuthor(userId))
+        toast.success('Author as been removed', {
             action: {
                 label: 'Dismiss',
             },
@@ -28,7 +28,7 @@ const DeleteUserDialog = ({ userId }) => {
         <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button variant='outline' className='w-full'>
-                    Remove User
+                    Remove Author
                 </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
@@ -48,4 +48,4 @@ const DeleteUserDialog = ({ userId }) => {
     )
 }
 
-export default DeleteUserDialog
+export default DeleteAuthorDialog

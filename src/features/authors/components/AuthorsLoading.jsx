@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-const UsersLoading = () => {
+
+const AuthorsLoading = () => {
     return (
         <section className=' flex flex-wrap gap-5'>
             {[1, 2, 3, 4].map((i) => {
@@ -26,4 +27,4 @@ const UsersLoading = () => {
     )
 }
 
-export default UsersLoading
+export default AuthorsLoading

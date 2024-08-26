@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-const ProfileLoading = () => {
+const AuthorLoading = () => {
     return (
         <Card className='w-full  mx-auto'>
             <CardHeader className='pb-2'>
@@ -38,4 +38,4 @@ const ProfileLoading = () => {
     )
 }
 
-export default ProfileLoading
+export default AuthorLoading

@@ -2,8 +2,8 @@ import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Mail, Phone } from 'lucide-react'
 
-const ContactAuthor = ({ userData }) => {
-    const { email, phone, name } = userData
+const ContactAuthor = ({ authorData }) => {
+    const { email, phone, name } = authorData
     const onEmailSelect = () => {
         var mailtoLink = 'mailto:' + encodeURIComponent(email) + '?subject=' + encodeURIComponent(`Hello ${name}`)
         window.location.href = mailtoLink
