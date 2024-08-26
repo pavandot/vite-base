@@ -13,12 +13,14 @@ import { Button } from '@/components/ui/button'
 import { useDispatch } from 'react-redux'
 import { deleteAuthor } from '../slice/authorsSlice'
 import { toast } from 'sonner'
+import { useTranslation } from 'react-i18next'
 
 const DeleteAuthorDialog = ({ userId }) => {
+    const { t } = useTranslation('authors')
     const dispatch = useDispatch()
     const removeUser = () => {
         dispatch(deleteAuthor(userId))
-        toast.success('Author as been removed', {
+        toast.success(t('author_removed'), {
             action: {
                 label: 'Dismiss',
             },
@@ -28,20 +30,17 @@ const DeleteAuthorDialog = ({ userId }) => {
         <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button variant='outline' className='w-full'>
-                    Remove Author
+                    {t('remove_author')}
                 </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your account and remove your data
-                        from our servers.
-                    </AlertDialogDescription>
+                    <AlertDialogTitle>{t('are_you_sure')}</AlertDialogTitle>
+                    <AlertDialogDescription>{t('action_text')}</AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={removeUser}>Continue</AlertDialogAction>
+                    <AlertDialogCancel>{t('common:cancel')}</AlertDialogCancel>
+                    <AlertDialogAction onClick={removeUser}>{t('common:continue')}</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

@@ -5,8 +5,10 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import DeleteAuthorDialog from './DeleteAuthorDialog'
+import { useTranslation } from 'react-i18next'
 
 const AuthorCard = ({ authorData }) => {
+    const { t } = useTranslation('authors')
     return (
         <Card className='w-full max-w-md'>
             <CardHeader className='flex flex-row items-center gap-4'>
@@ -29,7 +31,7 @@ const AuthorCard = ({ authorData }) => {
 
             <CardFooter className='space-x-5'>
                 <Button asChild className='w-full'>
-                    <Link to={`/author/${authorData?.id}`}>View Profile</Link>
+                    <Link to={`/author/${authorData?.id}`}>{t('view_profile')}</Link>
                 </Button>
                 <DeleteAuthorDialog authorId={authorData?.id} />
             </CardFooter>

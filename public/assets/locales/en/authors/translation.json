@@ -1,0 +1,14 @@
+{
+    "address": "Address",
+    "company": "Company",
+    "go_back": "Go Back",
+    "contact_author": "Contact Author",
+    "via_email": "Via Email",
+    "via_phone": "Via Phone",
+    "empty": "Empty",
+    "view_profile": "View Profile",
+    "remove_author": "Remove Author",
+    "are_you_sure": "Are you absolutely sure?",
+    "action_text": "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+    "author_removed": "Author as been removed"
+}

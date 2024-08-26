@@ -7,8 +7,10 @@ import { addAuthors } from '@/features/authors/slice/authorsSlice'
 
 import AuthorCard from '@/features/authors/components/AuthorCard'
 import AuthorsLoading from '@/features/authors/components/AuthorsLoading'
+import { useTranslation } from 'react-i18next'
 
 const Authors = () => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const authors = useSelector((state) => state.authors)
     const { data: authorsData, status: authorsStatus } = useGetAuthors()
@@ -20,7 +22,7 @@ const Authors = () => {
     return (
         <section className='  max-w-5xl mx-auto p-10'>
             {authorsStatus === 'pending' && <AuthorsLoading />}
-            {authorsStatus === 'error' && <p>Error...</p>}
+            {authorsStatus === 'error' && <p>{t('common:error')}...</p>}
             {authorsStatus === 'success' && (
                 <>
                     {authors?.length > 0 ? (
@@ -34,7 +36,7 @@ const Authors = () => {
                             <div>
                                 <PackageOpen className=' h-20  w-20' />
 
-                                <p className=' text-center'>Empty</p>
+                                <p className=' text-center'>{t('authors:empty')}</p>
                             </div>
                         </div>
                     )}

@@ -6,10 +6,11 @@ import { Mail, Phone, Globe, MapPin, Building2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import ContactAuthor from './ContactAuthor'
+import { useTranslation } from 'react-i18next'
 
 const AuthDetailsCard = ({ authorData }) => {
     console.log(authorData)
-
+    const { t } = useTranslation('authors')
     return (
         <Card className='w-full '>
             <CardHeader className='flex flex-row items-center gap-4'>
@@ -47,7 +48,7 @@ const AuthDetailsCard = ({ authorData }) => {
                 </div>
                 <Separator />
                 <div>
-                    <h3 className='font-semibold mb-2'>Address</h3>
+                    <h3 className='font-semibold mb-2'>{t('address')}</h3>
                     <div className='grid gap-1'>
                         <p>
                             {authorData.address.street}, {authorData.address.suite}
@@ -65,7 +66,7 @@ const AuthDetailsCard = ({ authorData }) => {
                 </div>
                 <Separator />
                 <div>
-                    <h3 className='font-semibold mb-2'>Company</h3>
+                    <h3 className='font-semibold mb-2'>{t('company')}</h3>
                     <div className='grid gap-1'>
                         <div className='flex items-center gap-2'>
                             <Building2 className='h-4 w-4 text-muted-foreground' />
@@ -79,7 +80,7 @@ const AuthDetailsCard = ({ authorData }) => {
             <CardFooter className='space-x-5'>
                 <ContactAuthor authorData={authorData} />
                 <Button variant='secondary' asChild className=' w-full'>
-                    <Link to={`/`}>Go Back</Link>
+                    <Link to={`/`}>{t('go_back')}</Link>
                 </Button>
             </CardFooter>
         </Card>

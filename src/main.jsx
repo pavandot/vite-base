@@ -8,8 +8,9 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import routes from './routes'
 
-import './index.css'
 import FullPageSpinner from './components/FullPageSpinner'
+import './lib/i18n'
+import './index.css'
 
 const queryClient = new QueryClient({ defaultOptions: queryConfig })
 
